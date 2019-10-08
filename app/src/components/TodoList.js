@@ -11,7 +11,7 @@ function TodoList(props) {
     return (
         <section>
             <h1>Hello World</h1>
-            {state.map(todo => <Todo key={todo.id} {...todo} />)}
+            {state.map(todo => <Todo key={todo.id} {...todo} dispatch={dispatch} />)}
             <AddTodoForm dispatch={dispatch} />
         </section>
     )

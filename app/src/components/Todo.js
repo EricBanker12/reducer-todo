@@ -1,9 +1,18 @@
 import React from 'react'
 
-function Todo({item, completed, id}) {
+function Todo({item, completed, id, dispatch}) {
     return (
         <div>
-            <h3>{item}</h3>
+            <p
+                style={{
+                    cursor: 'pointer',
+                    textDecoration: completed?'line-through':'unset',
+                    color: completed?'red':'unset',
+                }}
+                onClick={()=>{dispatch({type:'TOGGLE_COMPLETED', payload: id})}}
+            >
+                {item}
+            </p>
         </div>
     )
 }
