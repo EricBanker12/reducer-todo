@@ -17,6 +17,8 @@ export function reducer(state, action) {
             return [...state, action.payload]
         case 'TOGGLE_COMPLETED':
             return state.map(todo => todo.id === action.payload ? {...todo, completed: !todo.completed} : todo)
+        case 'CLEAR_COMPLETED':
+            return state.filter(todo => !todo.completed)
         default:
             return state
     }
