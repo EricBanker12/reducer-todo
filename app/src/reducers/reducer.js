@@ -11,9 +11,11 @@ export const initialState = [
     },
 ]
 
-export function reducer(action) {
+export function reducer(state, action) {
     switch (action.type) {
+        case 'ADD_TODO':
+            return [...state, action.payload]
         default:
-            return //state
+            return state
     }
 }
