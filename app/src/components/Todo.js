@@ -1,9 +1,10 @@
 import React from 'react'
+import {TableRow, TableCell} from '@material-ui/core'
 
 function Todo({item, completed, id, dispatch}) {
     return (
-        <div>
-            <p
+        <TableRow>
+            <TableCell
                 style={{
                     cursor: 'pointer',
                     textDecoration: completed?'line-through':'unset',
@@ -12,8 +13,8 @@ function Todo({item, completed, id, dispatch}) {
                 onClick={()=>{dispatch({type:'TOGGLE_COMPLETED', payload: id})}}
             >
                 {item}
-            </p>
-        </div>
+            </TableCell>
+        </TableRow>
     )
 }
 
