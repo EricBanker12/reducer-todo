@@ -1,4 +1,5 @@
 import React from 'react'
+import  { Button, Input } from '@material-ui/core'
 
 function AddTodoForm({dispatch}) {
     const [item, setItem] = React.useState('')
@@ -18,13 +19,28 @@ function AddTodoForm({dispatch}) {
 
     return (
         <form onSubmit={submitHandler}>
-            <input
+            <Input
                 type='text'
-                placeholder='add a new task'
+                placeholder='Add a new task'
+                required
                 value={item}
                 onChange={e => setItem(e.target.value)}
             />
-            <button type='submit'>Add</button>
+            <Input
+                type='date'
+                placeholder='Due date (optional)'
+                style={{marginLeft: '1rem'}}
+                // value={item}
+                // onChange={e => setItem(e.target.value)}
+            />
+            <Button
+                type='submit'
+                color='primary'
+                variant='contained'
+                style={{marginLeft: '1rem'}}
+            >
+                Add
+            </Button>
         </form>
     )
 }
