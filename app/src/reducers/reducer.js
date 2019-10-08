@@ -1,4 +1,4 @@
-const initialState = [
+export const initialState = [
     {
         item: 'Learn about reducers',
         completed: false,
@@ -11,11 +11,9 @@ const initialState = [
     },
 ]
 
-function reducer(action) {
+export function reducer(action) {
     switch (action.type) {
         default:
             return //state
     }
 }
-
-export default {reducer, initialState}
