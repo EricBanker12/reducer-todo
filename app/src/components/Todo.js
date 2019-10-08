@@ -1,7 +1,7 @@
 import React from 'react'
 import {TableRow, TableCell} from '@material-ui/core'
 
-function Todo({item, completed, id, dispatch}) {
+function Todo({item, completed, id, dueDate, dispatch}) {
     return (
         <TableRow>
             <TableCell
@@ -13,6 +13,10 @@ function Todo({item, completed, id, dispatch}) {
                 onClick={()=>{dispatch({type:'TOGGLE_COMPLETED', payload: id})}}
             >
                 {item}
+            </TableCell>
+            <TableCell>
+                {dueDate?dueDate.toLocaleString().replace(/^.*?(\d+\/\d+\/\d+).*$/,'$1'):''}
+                {dueDate&& new Date() > dueDate?' Overdue!':''}
             </TableCell>
         </TableRow>
     )

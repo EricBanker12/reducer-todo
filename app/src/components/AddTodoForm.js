@@ -3,6 +3,7 @@ import  { Button, Input } from '@material-ui/core'
 
 function AddTodoForm({dispatch}) {
     const [item, setItem] = React.useState('')
+    const [dueDate, setDueDate] = React.useState('')
 
     function submitHandler(e) {
         e.preventDefault()
@@ -10,11 +11,13 @@ function AddTodoForm({dispatch}) {
             type: 'ADD_TODO',
             payload: {
                 item,
+                dueDate: dueDate ? new Date(Date.parse(dueDate)) : '',
                 completed: false,
                 id: Date.now(),
             }
         })
         setItem('')
+        setDueDate('')
     }
 
     return (
@@ -30,8 +33,8 @@ function AddTodoForm({dispatch}) {
                 type='date'
                 placeholder='Due date (optional)'
                 style={{marginLeft: '1rem'}}
-                // value={item}
-                // onChange={e => setItem(e.target.value)}
+                value={dueDate}
+                onChange={e => {console.log(e.target.value); setDueDate(e.target.value)}}
             />
             <Button
                 type='submit'
